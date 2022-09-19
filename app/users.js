@@ -16,7 +16,6 @@ router.post('/', async (req, res) => {
         user.generateToken();
         await user.save();
         res.send(user);
-
     } catch (e) {
         res.status(400).send(e);
     }
@@ -33,7 +32,7 @@ router.post('/sessions', async (req, res) => {
     }
     user.generateToken();
     await user.save();
-    res.send({message: 'Username and password correct', user})
+    res.send({message: 'Username and password correct', user});
 });
 router.get('/secret', auth, async(req, res) => {
 
